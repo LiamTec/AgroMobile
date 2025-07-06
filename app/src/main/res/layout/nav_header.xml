@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@drawable/header_gradient"
+    android:gravity="bottom"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_user_circle"
+        android:contentDescription="User Icon"
+        android:background="@drawable/circle_bg"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/nav_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        android:textColor="@color/purple_700"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/nav_header_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="correo@ejemplo.com"
+        android:textColor="#EEEEEE"
+        android:textSize="14sp"
+        android:layout_marginTop="2dp"/>
+</LinearLayout> 

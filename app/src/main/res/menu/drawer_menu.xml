@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_cultivos"
+        android:title="Cultivos"
+        android:icon="@drawable/ic_cultivo"/>
+    <item
+        android:id="@+id/nav_recomendaciones"
+        android:title="Recomendaciones"
+        android:icon="@drawable/ic_recomendacion"/>
+    <item
+        android:id="@+id/nav_seguimiento"
+        android:title="Seguimiento"
+        android:icon="@drawable/ic_seguimiento"/>
+    <item
+        android:id="@+id/nav_precios"
+        android:title="Precios"
+        android:icon="@drawable/ic_precios"/>
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Cerrar sesión"
+        android:icon="@android:drawable/ic_lock_power_off"/>
+</menu> 

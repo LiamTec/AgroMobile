@@ -1,0 +1,8 @@
+<resources>
+    <string name="AgroTechAI">Tu App</string>
+    <!-- Este debe ser el Client ID Web que ya tienes -->
+    <string name="web_client_id">726395389632-ffq0l5gfp6ugitfptf36ljaea1939l9f.apps.googleusercontent.com</string>
+    <!-- URL de tu backend -->
+    <string name="api_base_url">http://10.0.2.2:8080/</string> <!-- Para emulador -->
+    <!-- <string name="api_base_url">http://10.200.171.111:8080/</string> --> <!-- Para dispositivo físico -->
+</resources>
