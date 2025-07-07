@@ -10,11 +10,19 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="32dp"/>
+
         <TextView
-            android:id="@+id/tvSinCultivos"
+            android:id="@+id/emptyState"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sin cultivos"
+            android:text="No hay cultivos registrados"
             android:textAlignment="center"
             android:gravity="center"
             android:textSize="18sp"
@@ -23,7 +31,7 @@
             android:layout_marginTop="32dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvCultivos"
+            android:id="@+id/recyclerViewCultivos"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -33,12 +41,12 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabNuevoCultivo"
+        android:id="@+id/fabAddCultivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        android:contentDescription="Nuevo Cultivo"
+        android:contentDescription="Agregar Cultivo"
         app:srcCompat="@drawable/ic_add"
         app:backgroundTint="@color/purple_700"/>
 

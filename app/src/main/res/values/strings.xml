@@ -5,4 +5,8 @@
     <!-- URL de tu backend -->
     <string name="api_base_url">http://10.0.2.2:8080/</string> <!-- Para emulador -->
     <!-- <string name="api_base_url">http://10.200.171.111:8080/</string> --> <!-- Para dispositivo físico -->
+    
+    <!-- Navigation Drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
