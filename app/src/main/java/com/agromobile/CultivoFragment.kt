@@ -46,12 +46,19 @@ class CultivoFragment : Fragment() {
                     val token = (activity as? HomeActivity)?.getAuthToken() ?: ""
                     val response = RetrofitClient.apiService.obtenerCultivos("Bearer $token")
                     if (response.isSuccessful) {
-                        val cultivos = response.body() ?: emptyList()
-                        cultivoAdapter.updateData(cultivos)
-                        mostrarSinCultivos(cultivos.isEmpty())
+                        val bodyString = response.body()?.string() ?: "[]"
+                        try {
+                            val cultivos = com.google.gson.Gson().fromJson(bodyString, Array<CultivoApiResponse>::class.java).toList()
+                            cultivoAdapter.updateData(cultivos)
+                            mostrarSinCultivos(cultivos.isEmpty())
+                        } catch (e: Exception) {
+                            Toast.makeText(requireContext(), "Respuesta inesperada del servidor", Toast.LENGTH_SHORT).show()
+                            mostrarSinCultivos(true)
+                        }
                     } else {
+                        val errorMsg = response.errorBody()?.string() ?: "Error desconocido"
+                        Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show()
                         mostrarSinCultivos(true)
-                        tvSinCultivos.text = "Error al obtener cultivos"
                     }
                 } catch (e: Exception) {
                     mostrarSinCultivos(true)
@@ -122,7 +129,6 @@ class CultivoFragment : Fragment() {
                     val token = (activity as? HomeActivity)?.getAuthToken() ?: ""
                     val payload = mapOf(
                         "nombre" to nombre,
-                        "cultivo" to nombre, // O usa otro campo si corresponde
                         "descripcion" to descripcion,
                         "localidad" to localidad,
                         "tipoTerrenoId" to tipoTerrenoId,
@@ -130,11 +136,13 @@ class CultivoFragment : Fragment() {
                     )
                     val response = RetrofitClient.apiService.guardarCultivoRaw("Bearer $token", payload)
                     if (response.isSuccessful) {
-                        Toast.makeText(requireContext(), "Cultivo guardado", Toast.LENGTH_SHORT).show()
+                        val successMsg = response.body()?.string() ?: "Cultivo guardado"
+                        Toast.makeText(requireContext(), successMsg, Toast.LENGTH_SHORT).show()
                         alertDialog.dismiss()
                         onCultivoGuardado()
                     } else {
-                        Toast.makeText(requireContext(), "Error al guardar", Toast.LENGTH_SHORT).show()
+                        val errorMsg = response.errorBody()?.string() ?: "Error desconocido"
+                        Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: Exception) {
                     Toast.makeText(requireContext(), "Error de red: ${e.message}", Toast.LENGTH_SHORT).show()

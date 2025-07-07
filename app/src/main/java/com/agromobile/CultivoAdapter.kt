@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CultivoAdapter(private var cultivos: List<CultivoRequest>) : RecyclerView.Adapter<CultivoAdapter.CultivoViewHolder>() {
+class CultivoAdapter(private var cultivos: List<CultivoApiResponse>) : RecyclerView.Adapter<CultivoAdapter.CultivoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CultivoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cultivo, parent, false)
         return CultivoViewHolder(view)
@@ -15,12 +15,13 @@ class CultivoAdapter(private var cultivos: List<CultivoRequest>) : RecyclerView.
     override fun onBindViewHolder(holder: CultivoViewHolder, position: Int) {
         val cultivo = cultivos[position]
         holder.tvNombre.text = cultivo.nombre
-        holder.tvTipo.text = cultivo.tipoTerreno
+        holder.tvTipo.text = cultivo.tipoTerreno.nombre
+        holder.tvEstado.text = cultivo.estado
     }
 
     override fun getItemCount(): Int = cultivos.size
 
-    fun updateData(newCultivos: List<CultivoRequest>) {
+    fun updateData(newCultivos: List<CultivoApiResponse>) {
         cultivos = newCultivos
         notifyDataSetChanged()
     }
@@ -28,5 +29,6 @@ class CultivoAdapter(private var cultivos: List<CultivoRequest>) : RecyclerView.
     class CultivoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNombre: TextView = itemView.findViewById(R.id.tvNombreCultivo)
         val tvTipo: TextView = itemView.findViewById(R.id.tvTipoTerreno)
+        val tvEstado: TextView = itemView.findViewById(R.id.tvEstadoCultivo)
     }
 } 

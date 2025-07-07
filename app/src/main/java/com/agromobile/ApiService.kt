@@ -7,6 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 import retrofit2.http.FieldMap
+import okhttp3.ResponseBody
 
 interface ApiService {
     @POST("api/mobile/auth")
@@ -24,7 +25,7 @@ interface ApiService {
     suspend fun guardarCultivoRaw(
         @Header("Authorization") authorization: String,
         @Body payload: Map<String, @JvmSuppressWildcards Any>
-    ): Response<Any>
+    ): Response<ResponseBody>
 
     @GET("api/precios/cultivo/{id}")
     suspend fun obtenerPrecios(
@@ -49,7 +50,7 @@ interface ApiService {
     @GET("api/cultivos")
     suspend fun obtenerCultivos(
         @Header("Authorization") authorization: String
-    ): Response<List<CultivoRequest>>
+    ): Response<ResponseBody>
 }
 
 data class GenericResponse(

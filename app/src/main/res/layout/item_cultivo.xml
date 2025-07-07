@@ -28,5 +28,13 @@
             android:text="Tipo de Terreno"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvEstadoCultivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView> 
